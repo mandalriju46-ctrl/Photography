@@ -76,12 +76,83 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach((el) => el.classList.add('in-view'));
   }
 
-  /* ---------- Gallery items -> nudge toward Instagram ---------- */
-  document.querySelectorAll('.gallery-item').forEach((item) => {
-    item.style.cursor = 'pointer';
-    item.addEventListener('click', () => {
-      window.open('https://www.instagram.com/priyankamaji58?igsh=c2JzeDB5Zjd0aHJh', '_blank', 'noopener');
+  /* ---------- Gallery filters ---------- */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      galleryItems.forEach((item) => {
+        const match = filter === 'all' || item.getAttribute('data-cat') === filter;
+        item.classList.toggle('hidden-item', !match);
+      });
     });
+  });
+
+  /* ---------- Lightbox ---------- */
+  const lightbox = document.getElementById('lightbox');
+  const lbImage = document.getElementById('lbImage');
+  const lbCaption = document.getElementById('lbCaption');
+  const lbClose = document.getElementById('lbClose');
+  const lbPrev = document.getElementById('lbPrev');
+  const lbNext = document.getElementById('lbNext');
+
+  let visibleItems = [];
+  let currentIndex = 0;
+
+  const refreshVisibleItems = () => {
+    visibleItems = Array.from(galleryItems).filter((item) => !item.classList.contains('hidden-item'));
+  };
+
+  const openLightbox = (item) => {
+    refreshVisibleItems();
+    currentIndex = visibleItems.indexOf(item);
+    showSlide(currentIndex);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  const showSlide = (index) => {
+    if (!visibleItems.length) return;
+    currentIndex = (index + visibleItems.length) % visibleItems.length;
+    const item = visibleItems[currentIndex];
+    const img = item.querySelector('img');
+    const caption = item.querySelector('figcaption');
+    lbImage.src = img.src;
+    lbImage.alt = img.alt;
+    lbCaption.textContent = caption ? caption.textContent : '';
+  };
+
+  galleryItems.forEach((item) => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  if (lbPrev) lbPrev.addEventListener('click', () => showSlide(currentIndex - 1));
+  if (lbNext) lbNext.addEventListener('click', () => showSlide(currentIndex + 1));
+
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox || !lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
+    if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
   });
 
   /* ---------- Footer year ---------- */

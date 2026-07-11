@@ -205,6 +205,11 @@
         <h3>Candid &amp; Custom Shoots</h3>
         <p>Have something specific in mind? Tell me the vision, I'll bring the lens.</p>
       </article>
+      <article class="service-card reveal">
+        <span class="service-icon">🎬</span>
+        <h3>Reel Shoots</h3>
+        <p>Trendy, cinematic Instagram reels &amp; short video content — shot, cut and styled to keep your feed moving.</p>
+      </article>
     </div>
   </section>
 
@@ -216,21 +221,54 @@
       The full, ever-growing gallery lives on Instagram — reels, real weddings and behind-the-scenes included.
     </p>
 
-    <div class="gallery">
-      <div class="gallery-item tall reveal" data-cat="Wedding"><span>Wedding</span></div>
-      <div class="gallery-item reveal" data-cat="Maternity"><span>Maternity</span></div>
-      <div class="gallery-item reveal" data-cat="Newborn"><span>Newborn</span></div>
-      <div class="gallery-item tall reveal" data-cat="Fashion"><span>Fashion</span></div>
-      <div class="gallery-item wide reveal" data-cat="Pre-Wedding"><span>Pre&#8209;Wedding</span></div>
-      <div class="gallery-item reveal" data-cat="Family"><span>Family</span></div>
-      <div class="gallery-item reveal" data-cat="Birthday"><span>Birthday</span></div>
-      <div class="gallery-item tall reveal" data-cat="Events"><span>Events</span></div>
+    <div class="gallery-filters reveal center">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Portrait">Portrait</button>
+      <button class="filter-btn" data-filter="Street Photography">Street Photography</button>
+      <button class="filter-btn" data-filter="Wedding Event">Wedding</button>
+      <button class="filter-btn" data-filter="Pre Wedding Event">Pre-Wedding</button>
+      <button class="filter-btn" data-filter="Candid">Candid</button>
+      <button class="filter-btn" data-filter="Birthday">Birthday</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <figure class="gallery-item reveal" data-cat="Street Photography"><img src="images/20251204_153611.jpg" alt="Portrait session by Priyanka's Photography" loading="lazy"><figcaption>Street Photography</figcaption></figure>
+      <figure class="gallery-item reveal" data-cat="Street Photography"><img src="images/20251204_155108.jpg" alt="Portrait session by Priyanka's Photography" loading="lazy"><figcaption>Street Photography</figcaption></figure>
+      <figure class="gallery-item reveal" data-cat="Street Photography"><img src="images/20260502_195940.jpg" alt="Candid moment by Priyanka's Photography" loading="lazy"><figcaption>Street Photography</figcaption></figure>
+      <figure class="gallery-item reveal" data-cat="Street Photography"><img src="images/20260503_045632.jpg" alt="Wedding event by Priyanka's Photography" loading="lazy"><figcaption>Street Photography</figcaption></figure>
+      <figure class="gallery-item wide reveal" data-cat="Street Photography"><img src="images/20260503_050413.jpg" alt="Wedding event by Priyanka's Photography" loading="lazy"><figcaption>Street Photography</figcaption></figure>
+      <figure class="gallery-item reveal" data-cat="Street Photography"><img src="images/20260503_051032.jpg" alt="Wedding event by Priyanka's Photography" loading="lazy"><figcaption>Street Photography</figcaption></figure>
+      <figure class="gallery-item reveal" data-cat="Portrait"><img src="images/DSC00048.jpg" alt="Portrait session by Priyanka's Photography" loading="lazy"><figcaption>Portrait</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Portrait"><img src="images/DSC00114.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Portrait</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Portrait"><img src="images/DSC00717_3.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Portrait</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Portrait"><img src="images/DSC00746.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Portrait</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Portrait"><img src="images/DSC00747.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Portrait</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Portrait"><img src="images/DSC00762__1_.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Portrait</figcaption></figure>
+      <figure class="gallery-item wide reveal" data-cat="Birthday"><img src="images/DSC00868_1_.jpg" alt="Wedding event by Priyanka's Photography" loading="lazy"><figcaption>Birthday Events</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Birthday"><img src="images/DSC00874.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Birthday Events</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Wedding Event"><img src="images/DSC00957.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Wedding</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Pre Wedding Event"><img src="images/DSC01043__1_.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Pre-Wedding</figcaption></figure>
+      <figure class="gallery-item tall reveal" data-cat="Pre Wedding Event"><img src="images/DSC01146__1_.jpg" alt="Fashion shoot by Priyanka's Photography" loading="lazy"><figcaption>Pre-Wedding</figcaption></figure>
+      <figure class="gallery-item reveal" data-cat="Candid"><img src="images/IMG_20260626_WA0156.jpg" alt="Candid moment by Priyanka's Photography" loading="lazy"><figcaption>Candid</figcaption></figure>
+      <figure class="gallery-item reveal" data-cat="Street Photography"><img src="images/InShot_20250827_162144444.jpg" alt="Styled portrait by Priyanka's Photography" loading="lazy"><figcaption>Street Photography</figcaption></figure>
+      <figure class="gallery-item reveal" data-cat="Street Photography"><img src="images/InShot_20260507_174344623.jpg" alt="Styled portrait by Priyanka's Photography" loading="lazy"><figcaption>Street Photography</figcaption></figure>
     </div>
 
     <a href="https://www.instagram.com/priyankamaji58?igsh=c2JzeDB5Zjd0aHJh" target="_blank" rel="noopener" class="btn btn-primary center-btn reveal">
       View full portfolio on Instagram
     </a>
   </section>
+
+  <!-- ================= LIGHTBOX ================= -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+    <figure class="lb-figure">
+      <img src="" alt="" id="lbImage">
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  </div>
 
   <!-- ================= PROCESS ================= -->
   <section class="process" id="process">
@@ -392,3 +430,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
